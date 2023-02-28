@@ -11,8 +11,10 @@ export default async function handler(req, res) {
         for(let types of data.data.types) {
             arr.push(types.type.name)
         }
+        res.status(200);
         return res.json({ "pokemonName": data.data.name, "sprite": data.data.sprites.front_default, "types": arr });
     } catch (error) {
+        res.status(400);
         console.log(error);
     }
 }
